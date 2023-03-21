@@ -5,7 +5,7 @@
     font-family:Poppins;
 }
 body{
-    
+    position: relative;
     background-color:#f5f5f5
 }
 nav{
@@ -75,10 +75,140 @@ nav{
     margin:5px;
 }
 
+/* Floater button ----------------------------- */
+.floater-btns{
+    position:fixed;
+    bottom:0;
+    right:3vw;
+}
+.floater-btns button{
+    display:block;
+    width:7vh;
+    height:7vh;
+    border-radius:50%;
+    margin:5px 0;
+    background-color:#0029FF;
+    border:none;
+}
+.floater-btns i{
+    font-size:2vw;
+    color:white;
+}
+
+/* floater divs --------------------------------- */
+
+.floater-divs .journey-board{
+    position:absolute;
+    top:100px;
+    left:0;
+
+}
+.floater-divs .notice-board{
+    position:absolute;
+    top:100px;
+    right:0;
+    /* padding:20px 10px; */
+    border-radius: 30px 0 0 30px ;
+
+    border:none;box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px -4px 4px rgba(0, 0, 0, 0.25);
+
+}
+.floater-divs .notice-board p{
+    font-size:10px;
+    width:35px;
+    height:55vh;
+    padding-right:10px;
+    letter-spacing: 4px;
+    border-radius: 30px 0 0 30px ;
+    color:#FFFFFF;
+    background-color: #000000;
+    float:left;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+}
+.floater-divs .notice-board p i{
+    margin-bottom:10px;
+}
+.notice-content{
+    width:min(30px,2vw);
+    height:55vh;
+    padding:20px 10px;
+    /* border:1px solid red; */
+    float:right;
+}
+
+.floater-divs .journey-board{
+    border:none;
+    border-radius: 0px 20px 0px 0px;
+    width:max(25vw,250px);
+}
+.floater-divs .journey-board p{
+    cursor: pointer;
+    height:50px;
+    padding-top:13px;
+    padding-left:18px;
+    font-size:16px;
+    line-height:24px;
+    font-weight:600;
+    border:none;
+    text-align:left;
+    color:#FFFFFF;
+    background: #000000;
+    border-radius: 0px 20px 0px 0px;
+}
+.floater-divs .journey-board p > i {
+    float:right;
+    padding:5px 15px;
+}
+.journey-content{
+    height:65vh;
+    /* border:1px solid red; */
+    padding:5px;
+    
+    background: #FDFDFD;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 0px 20px 20px;
+}
+.journey-content li{
+    margin:10px;
+    text-align:left;
+    font-size:12px;
+}
+.journey-content li h4 {
+    font-size:14px;
+}
+
+
+.journey-numbers{
+    /* margin:10px; */
+    width:30px;
+    aspect-ratio: 2/3;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:10px;
+    border-radius: 20px;
+    border:1px solid #0029FF;
+    color:#0029FF;
+}
+
 /* -------------------Home---------------------- */
 
 .home{
-    padding:0 15vw;
+    padding:0 10vw;
+}
+@media all and (max-width:500px) {
+    .home{
+        padding:0 12vw;
+    }
+    .heading{
+        flex-direction: column;
+        justify-content:center;
+    }
+    .heading > h1 {
+        text-align: center;
+        margin-bottom:10px;
+    }
 }
 
 /* heading-------------------------------- */
@@ -95,10 +225,11 @@ nav{
 }
 .submit-task{
     margin:10px 0;
-    padding:7px 25px;
+    height:36px;
+    width:121px;
     border:none;
     font-weight:500;
-    background-color:#3683F0;
+    background-color:#0029FF;
     color:white;
     border-radius:10px;
 }
@@ -118,13 +249,14 @@ nav{
     display:flex;
     justify-content: space-around;
     flex-wrap:wrap;
-    gap:50px;
+    /* gap:25px; */
     /* overflow-y:scroll; */
 }
 .asset{
     position:relative;
-    width:400px;
-    height:500px;
+    width:480px;
+    height:580px;
+    margin-bottom:20px;
     border-radius:15px;
     box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.25);
     background-color:#FDFDFD;
@@ -152,16 +284,17 @@ nav{
 }
 
 .asset-body{
-    width:100%;
+    width:104%;
     height:100%;
     padding: 20% 0 0 0;
     font-size:14px;
     overflow: auto;
 }
 .asset-details{
+    height:inherit;
     padding:0 5%;
     border:1px solid #D1CECE;
-    margin:10% 0;
+    margin:10% 0 0 0 ;
 }
 .asset-desc{
     padding:0 5%;
@@ -170,11 +303,18 @@ nav{
     font-weight:700;
 }
 
-iframe{
-    width:100%;
-    height:250px;
-}
 
+.article-iframe{
+    width:100%;
+    height:400px;
+}
+.article-body{
+    position:relative;
+}
+.asset-body .video{
+    height:300px;
+    width:100%;
+}
 .article-heading > h4, .article-content > h4{
     margin:5% 0;
 }
@@ -196,8 +336,7 @@ iframe{
     outline:none;
     padding: 0 0 50px 10px;
     line-height: 20px;
-    background: #FCFBFB;
-    box-shadow: -2px 2px 6px rgba(0, 0, 0, 0.15);
+    background: #FCFBFB;box-shadow: -2px 2px 6px rgba(0, 0, 0, 0.15);
     border-radius: 0px;
 }
 .submit-article{
@@ -225,12 +364,13 @@ iframe{
 }
 .toggle-body{
     width:100%;
-    padding:10px ;
+    padding:10px 10px 5px 10px;
     font-weight: 400;
-    font-size:14px;
+    font-size:12px;
 }
 .toggle-content{
     width:100%;
+    font-size:12px;
 }
 
 
@@ -272,6 +412,28 @@ iframe{
     box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
 }
+.threadbuilder-tools{
+    padding-top:15px;
+    display:flex;
+    justify-content: flex-end;
+    gap:20px;
+    width:100%;
+
+}
+.threadbuilder-tools ul{
+    display:flex;
+    gap:10px;
+    list-style:none;
+}
+.threadbuilder-tools .select-category , .threadbuilder-tools .select-process{
+    font-size:10px;
+    padding:5px;
+    line-height:15px;
+    font-weight:600;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+} 
+
 .submit-thread{
     margin:15px 0;
     padding:10px 20px;
@@ -287,4 +449,40 @@ iframe{
     float:right;
     border:none;
     background-color:transparent;
+}
+
+/* tools-------------------------------- */
+.tools{
+    padding:20px 20px;
+    font-size:12px;
+border-radius: 5px 5px 0px 0px;
+    background: #FCFBFB;    
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.18);
+}
+.file-options,.tools-options{
+    display:flex;
+    align-items: center;
+    list-style:none;
+    color:#616161;
+    
+}
+.file-options{
+    justify-content: space-between;
+}
+.tools-options li{
+    margin:5px 5px;
+
+}
+.tools-options > .dot {
+    height:5px;
+    width:5px;
+    margin:2px;
+    border-radius:50%;
+    background-color: black;
+}
+.tools-options > li > input{
+    border:none;
+    padding:3px 0 3px 5px;
+    background-color:#EBEBEB;
+    outline:none;
 }
