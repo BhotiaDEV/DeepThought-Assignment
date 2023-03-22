@@ -164,12 +164,14 @@ nav{
     height:65vh;
     /* border:1px solid red; */
     padding:5px;
-    
+    overflow:auto;
     background: #FDFDFD;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
     border-radius: 0px 0px 20px 20px;
 }
+
 .journey-content li{
+    padding: 0 5px;
     margin:10px;
     text-align:left;
     font-size:12px;
@@ -304,7 +306,7 @@ nav{
 }
 
 
-.article-iframe{
+.article-iframe, .thread-iframe{
     width:100%;
     height:400px;
 }

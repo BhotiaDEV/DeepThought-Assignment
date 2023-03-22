@@ -118,45 +118,49 @@ const Home = () => {
                         : <></>}
                         {asset.asset_content_type === 'threadbuilder' ? 
                             <div className='thread-body'>
-                                <form onSubmit={
-                                    (e)=>handleSubmit(e,asset)
-                                    }>
-                                    <div className='thread-list'>
-                                        {displayList(thread,asset.asset_title)}
-                                    </div>
-                                    <div className='sub-thread'>
-                                        <h4>Sub thread 1</h4>
-                                        <input className='thread-input' type="text" name='thread' placeholder='Enter Text here' required/>
-                                    </div>
-                                    <div className='sub-interpretation'>
-                                        <h4>Sub interpretation 1</h4>
-                                        <input className='thread-input' type="text" name='interpretation' placeholder='Enter Text here' required/>
-                                    </div>
-                                    <div className='threadbuilder-tools'>
-                                        <ul>
-                                            <li>
-                                            <i class="fa-xl fa-solid fa-lightbulb"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa-xl fa-solid fa-message"></i>
-                                            </li>
-                                        </ul>
-                                        <div className='select-category'>
-                                            Select Category&nbsp;
-                                            <i class="fa-lg fa-solid fa-angle-down"></i>
-                                            <></>
+                                {asset.asset_type === 'display_asset' ?
+                                    <iframe className='thread-iframe' src={asset.asset_content} width="100%" height="800"></iframe>
+                                :
+                                    <form onSubmit={
+                                        (e)=>handleSubmit(e,asset)
+                                        }>
+                                        <div className='thread-list'>
+                                            {displayList(thread,asset.asset_title)}
                                         </div>
-                                        <div className='select-process'>
-                                            Select Process&nbsp;
-                                            <i class="fa-lg fa-solid fa-angle-down"></i>
+                                        <div className='sub-thread'>
+                                            <h4>Sub thread 1</h4>
+                                            <input className='thread-input' type="text" name='thread' placeholder='Enter Text here' required/>
                                         </div>
-                                    </div>
-                                    <button className='submit-thread'>+&nbsp;Sub-thread</button>
-                                    <div className='thread-summary'>
-                                        <h4>Summary for Thread A</h4>
-                                        <input className='thread-input' type="text" name='summary' placeholder='Enter Text here' required/>
-                                    </div>
-                                </form>
+                                        <div className='sub-interpretation'>
+                                            <h4>Sub interpretation 1</h4>
+                                            <input className='thread-input' type="text" name='interpretation' placeholder='Enter Text here' required/>
+                                        </div>
+                                        <div className='threadbuilder-tools'>
+                                            <ul>
+                                                <li>
+                                                <i class="fa-xl fa-solid fa-lightbulb"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="fa-xl fa-solid fa-message"></i>
+                                                </li>
+                                            </ul>
+                                            <div className='select-category'>
+                                                Select Category&nbsp;
+                                                <i class="fa-lg fa-solid fa-angle-down"></i>
+                                                <></>
+                                            </div>
+                                            <div className='select-process'>
+                                                Select Process&nbsp;
+                                                <i class="fa-lg fa-solid fa-angle-down"></i>
+                                            </div>
+                                        </div>
+                                        <button className='submit-thread'>+&nbsp;Sub-thread</button>
+                                        <div className='thread-summary'>
+                                            <h4>Summary for Thread A</h4>
+                                            <input className='thread-input' type="text" name='summary' placeholder='Enter Text here' required/>
+                                        </div>
+                                    </form>
+                                }
                             </div>
                         : <></> 
                         }
@@ -263,22 +267,24 @@ const Home = () => {
                 <button className='notice-board' onClick={()=>{
                     setNotice(!toggleNotice)
                 }}>
-                <p>
-                    <i class=" fa-xl fa-solid fa-x"></i>
-                    Notice board
-                </p>
-                <div className='notice-content'></div>
-            </button>
+                    <p>
+                        <i class=" fa-xl fa-solid fa-x"></i>
+                        Notice board
+                    </p>
+                    <div className='notice-content' style={{width:"20vw"}}></div>
+                </button>
+                
             :
-            <button className='notice-board' onClick={()=>{
-                setNotice(!toggleNotice)
-            }}>
-                <p>
-                    <i class=" fa-xl fa-solid fa-x"></i>
-                    Notice board
-                </p>
-                <div className='notice-content' style={{width:"20vw"}}></div>
-            </button>
+                <button className='notice-board' onClick={()=>{
+                    setNotice(!toggleNotice)
+                }}>
+                    <p>
+                        <i class=" fa-xl fa-solid fa-x"></i>
+                        Notice board
+                    </p>
+                    <div className='notice-content'></div>
+                </button>
+            
             }
         </div>
     </section>
