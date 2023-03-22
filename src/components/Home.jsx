@@ -145,13 +145,42 @@ const Home = () => {
                                                 </li>
                                             </ul>
                                             <div className='select-category'>
-                                                Select Category&nbsp;
-                                                <i class="fa-lg fa-solid fa-angle-down"></i>
+
+                                                <button type='button' className='select-category-btn'
+                                                    onClick={()=>{
+                                                        setCategory(!categoryToggle)
+                                                    }}
+                                                >
+                                                    Select Category&nbsp;
+                                                    <i class="fa-lg fa-solid fa-angle-down"></i>
+                                                </button>
+                                                {categoryToggle ?
+                                                <ul >
+                                                    <li>Category 1</li>
+                                                    <li>Category 2</li>
+                                                </ul>
+                                                :
                                                 <></>
+                                                }
                                             </div>
                                             <div className='select-process'>
-                                                Select Process&nbsp;
-                                                <i class="fa-lg fa-solid fa-angle-down"></i>
+
+                                                <button type='button' className='select-process-btn'
+                                                    onClick={()=>{
+                                                        setProcess(!processToggle)
+                                                    }}
+                                                >
+                                                    Select Process&nbsp;
+                                                    <i class="fa-lg fa-solid fa-angle-down"></i>
+                                                </button>
+                                                {processToggle ?
+                                                <ul >
+                                                    <li>Process 1</li>
+                                                    <li>Process 2</li>
+                                                </ul>
+                                                :
+                                                <></>
+                                                }
                                             </div>
                                         </div>
                                         <button className='submit-thread'>+&nbsp;Sub-thread</button>
